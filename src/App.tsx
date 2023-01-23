@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import './App.css'
 import TodoList from './components/TodoList'
 import { Todo } from './Models/TodoModel'
@@ -12,10 +12,6 @@ if(todo){
 addTodoList([...todoList,{id:Date.now(),content:todo,isFinished:false}])}
 addTodo('');
 }
-
-useEffect(()=>{
-console.log(todoList)
-},[todoList])
 
   return (
     <div onSubmit={addHandler} className='app'>

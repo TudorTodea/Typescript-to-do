@@ -60,6 +60,9 @@ background-color:  #121212;
   }
 
   .todosContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     margin-top: 10px;
     background-color: aqua;
     width: 50%;
@@ -67,6 +70,18 @@ background-color:  #121212;
     text-align: center;
     border-radius: 10px;
     font-size: 24px;
+  }
+  @media (max-width: 760px) {
+    .todosContainer{
+      margin-top: 10px;
+      background-color: aqua;
+      width: 90%;
+      box-shadow: 0 0 10px aqua;
+      text-align: center;
+      border-radius: 10px;
+      font-size: 24px;
+    }
+  
   }
 
 .todoIcons{
@@ -87,6 +102,7 @@ margin: 0 10px 0 10px;
 .todoBox{
     display: flex;
     position: relative;
+
 }
 
 
@@ -95,7 +111,8 @@ margin: 0 10px 0 10px;
   padding: 5px;
   border: none;
   font-size: 20px;
-
+  border-radius: 10px;
+  width: 37vw;
 }
 .editInput:focus{
   outline: none;
