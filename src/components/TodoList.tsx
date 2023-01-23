@@ -1,17 +1,17 @@
 import React from 'react'
 import { Todo } from '../Models/TodoModel'
+import TodoItem from './TodoItem'
 
 interface props{
-    todos:Array<Todo>
+    todos:Array<Todo>,
+    setTodos:React.Dispatch<React.SetStateAction<Todo[]>>
 }
 
-const TodoList:React.FC<props> = ({todos}) => {
+const TodoList:React.FC<props> = ({todos,setTodos}) => {
   return (
-    <div>{todos?.map((item:Todo)=>
+    <div className='todosContainer'>{todos?.map((item:Todo,index:number)=>
       (
-           <li style={{ color:'white' }} key={item.id}>
-           { item.content }
-            </li>
+          <TodoItem key={item.id} index={index} todo={item}todos={todos}setTodos={setTodos}/>
         )
     )}</div>
   )

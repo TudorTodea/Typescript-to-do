@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import TodoList from './components/TodoList'
 import { Todo } from './Models/TodoModel'
@@ -13,6 +13,10 @@ addTodoList([...todoList,{id:Date.now(),content:todo,isFinished:false}])}
 addTodo('');
 }
 
+useEffect(()=>{
+console.log(todoList)
+},[todoList])
+
   return (
     <div onSubmit={addHandler} className='app'>
         <div className='heading'>To Do LIST</div>
@@ -20,7 +24,7 @@ addTodo('');
         <input value={todo} className='input-box' onChange={(e)=>addTodo(e.target.value)} placeholder='Add Task'/>
         <button className='input-button'type='submit'>ADD</button>
        </form>
-      <TodoList todos={todoList}/>
+      <TodoList todos={todoList} setTodos={addTodoList}/>
     </div>
   )
 }
